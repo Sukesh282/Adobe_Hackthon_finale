@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.Python
+env/
+venv/
+*.db
+*.sqlite3
+
+# Local secrets file
+.env
+
+# Local Data Folders (NEVER commit user data, models, or audio to Git)
+backend/db/
+backend/uploads/
+backend/models/
+backend/audio_files/
+
+# Node.js dependencies
+frontend/node_modules/
+frontend/build/
+.pnp
+.pnp.js
+
+# Docker temporary files
+docker-compose.override.yml
+
+# IDE and OS specific files
+.idea/
+.vscode/
+*.DS_Store

@@ -1,0 +1,21 @@
+ # Core FastAPI Framework
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+
+# Database
+SQLAlchemy
+
+# PDF Processing
+PyMuPDF
+
+# Local NLP
+sentence-transformers
+spacy==3.4.0
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.4.0/en_core_web_sm-3.4.0.tar.gz
+
+# External Cloud Services SDKs
+openai
+google-generativeai
+azure-cognitiveservices-speech

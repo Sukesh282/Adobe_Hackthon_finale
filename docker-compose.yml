@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: adobe_finale_backend
+    env_file: .env # Load environment variables from the .env file
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ./backend/db:/app/db
+      - ./backend/models:/app/models
+      - ./backend/audio_files:/app/audio_files
+    ports:
+      # Expose port 8000 for the backend service
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 45s # Give extra time for heavy NLP models to load on startup
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # Pass the Adobe key as a build-time argument to React
+        ADOBE_API_KEY: ${ADOBE_API_KEY}
+    container_name: adobe_finale_frontend
+    ports:
+      # Run on port 8080 as specified by the hackathon requirements
+      - "8080:80"
+    depends_on:
+      backend:
+        # The frontend will not start until the backend is fully healthy
+        condition: service_healthy 
