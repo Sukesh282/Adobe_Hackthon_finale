@@ -2,7 +2,6 @@
 
 This project, "Connecting the Dots," is a web-based, intelligent PDF reading application built for the Adobe Hackathon 2025 Finale. It transforms a static library of documents into an interconnected web of knowledge, powered by local AI for recommendations and external LLMs for deeper insights.
 
-![App Screenshot](https://raw.githubusercontent.com/m-ali-awan/screenshots/main/doc-intel-app-ss.png)
 
 ---
 
